@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+body { 
+    margin: 0;
+    padding: 0;
+}
+nav {
+    background-color: #e64528;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/**********************************
+ *       Navigation/Header        *
+ **********************************/
+nav {
+    background-color: #e64528;
+    height: 70px;
+}
+nav .container{
+    height: 50px;
+    padding: 10px;
+}
+nav a {
+    height: 50px;
+    margin: 0px;
+}
+.menu-btn{
+    float: left;
+    padding: 10px 20px;
+    background-color: white;
+    border-radius: 10px;
+}
+
