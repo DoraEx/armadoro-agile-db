@@ -24,10 +24,7 @@
                         <a class="dropdown-item" href="#">Statistics</a>
                     </div>
                 </div>
-                <a class="navbar-brand" href="../">Agile Project</a>
-                
-                <form class="form-inline">
-                    <button class="btn" type="button">Logout</button>
-                </form>
+                <a class="navbar-brand" href="../">Agile Project</a>                
+                <a href="../service/logout.php">Logout</a>
             </div>
         </nav>
