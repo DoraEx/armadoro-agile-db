@@ -128,8 +128,8 @@ CREATE TABLE task_developer(
 create table project_progress(
 	project_id 	smallint unsigned not null,
 	time    	date not null,
-	total   	smallint unsigned not null,
-	open 		smallint unsigned not null,
+	total_tasks smallint unsigned not null,
+	open_tasks	smallint unsigned not null,
 	primary key(project_id, time),
 	foreign key (project_id) references project(project_id)
 );
@@ -138,8 +138,8 @@ create table iteration_progress(
 	project_id 	smallint unsigned not null,
 	iteration_id 	smallint unsigned not null,
 	time  		date not null,
-	total   	smallint unsigned not null,
-	open    	smallint unsigned not null,
+	total_tasks smallint unsigned not null,
+	open_tasks  smallint unsigned not null,
 	primary key (project_id, iteration_id, time),
 	foreign key (project_id, iteration_id) references iteration(project_id, iteration_id)
 );
