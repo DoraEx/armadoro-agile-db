@@ -1,7 +1,7 @@
 #!/bin/bash
 
 dir=$(pwd)
-reset="/create.sql"
+create="/create.sql"
 
 echo -n "mysql username: "
 read username

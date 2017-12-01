@@ -67,15 +67,15 @@ CREATE TABLE iteration (
 );
 
 CREATE TABLE status (
-	status_id	CHAR(2),
-	status_name	VARCHAR(20),
+	status_id       CHAR(2),
+	status_name     VARCHAR(20),
 	PRIMARY KEY(status_id)
 );
 
 CREATE TABLE size (
-	size_id		CHAR(2),
-	size_name	VARCHAR(15),
-	size_points	NUMERIC(3,0),
+	size_id        CHAR(2),
+	size_name       VARCHAR(15),
+	size_points     NUMERIC(3,0),
 	PRIMARY KEY(size_id)
 );
 
