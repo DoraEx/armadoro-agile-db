@@ -1,5 +1,5 @@
 <?php
-	require('dbconf.php');
+	require('service/dbconf.php');
 	session_start();
 
 	$user_check = $_SESSION['e_id'];
