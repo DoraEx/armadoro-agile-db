@@ -1,4 +1,5 @@
 <?php
+    ini_set('display_errors', 1);
     //todo: move all this to a separate file.
 
     require("../dbconf.php");
@@ -39,7 +40,7 @@
 
 <body>
     <?php include('../header.php');?>
-    <form action="" method="post">
+    <form action="" method="POST">
         <label>Email</label>
         <br/>
         <input type="email" name="email"/>
