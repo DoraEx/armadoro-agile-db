@@ -6,6 +6,10 @@ from employee e
  	join project p 
  	on pm.emp_id = p.project_manager;
 
+
+
+
+
 create view task_details as
 select task_name, create_date, completed_date, project_name, iteration_name, status_name, size_name
 from task t
@@ -17,6 +21,10 @@ from task t
 	join size s
  	on s.size_id = t.size_id;
 
+
+
+
+
 create view comment_details as
 select comment_text, first_name, last_name, task_name, date_created
 from comment c
@@ -25,12 +33,18 @@ from comment c
  	join task t
  	on c.task_id = t.task_id;
 
+
+
+
+
 create view developer_capacity as
 select first_name, last_name, count(*)
 from employee e
 	join task_developer t
 	on e.emp_id = t.emp_id
 group by first_name, last_name;
+
+
 
 create view unread_comment_detail as
 select unread.emp_id as emp_id, c.comment_id, a.emp_id as author_id, concat(a.first_name,' ', a.last_name) as author, t.task_id,
@@ -50,3 +64,19 @@ from (select comment_id, emp_id
 	join (select emp_id, first_name, last_name
 		from employee) as a
 	on a.emp_id = c.emp_id;
+
+
+
+/*ACTIVE PROJECTS*/
+CREATE VIEW active_projects AS 
+SELECT * 
+FROM project 
+WHERE date_complete IS NULL; 
+
+
+
+/*ACTIVE ITERATIONS*/
+CREATE VIEW active_iterations AS
+SELECT *
+FROM iteration
+WHERE (SELECT NOW()) BETWEEN date_start AND date_end;
