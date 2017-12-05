@@ -9,14 +9,14 @@ values (null, 'Janice', 'Grant'),
 (null, 'Steven','Berkshire');
 
 insert into login_credential
-values ('j.grant@company.com', 'password1', 1),
-('m.fullman@company.com', 'password2', 2),
-('a.mcrow@company.com', 'password3', 3),
-('a.jenkins@company.com', 'password4', 4),
-('m.salvador@company.com', 'password5', 5),
-('m.clearwater@company.com', 'password6', 6),
-('c.chapman@company.com', 'password7', 7),
-('s.berkshire@company.com', 'password8', 8);
+values ('j.grant@company.com', '$2y$10$vPntXPmcutrOAlAvG0k0IuTydGV18Z.crlosQAcHUMOZXEIBSu9a', 1),
+('m.fullman@company.com', '$2y$10$aIZRIFP6kTys/Vu52H8gGOY1V.8e7A5XHFIsm7TSfniffg6zM.TQW', 2),
+('a.mcrow@company.com', '$2y$10$NzzvgE3jqjoXWovGI6q1P.7LhuzahA8WAIxgQC7tvVyT0EnUNijDq', 3),
+('a.jenkins@company.com', '$2y$10$p6/N6e5MQLJ.A5Ay.jgFiujZzKBebqqFLLxyYXE2T8rzLN5eTygzO', 4),
+('m.salvador@company.com', '$2y$10$Y3uyTa8SbBoeFjkek3C9k.z.jPYjQDVOnbtCyAKrEAw79JUkbqVIq', 5),
+('m.clearwater@company.com', '$2y$10$DLDeH31frl4zfW8XC/14JO1y8bRfxesi/bj2MFrdHz4rqo9fECr0y', 6),
+('c.chapman@company.com', '$2y$10$hFuIYLP8OT126DxTZYEvu.gvgI1G.urMjm6RtkW1mZiaktdxChZGK', 7),
+('s.berkshire@company.com', '$2y$10$diNQgNhNA9E4OC1z4IGnze2ObAnPVbHoXtNjAgOUyVwSqOnX2cv1S', 8);
 
 insert into project_manager
 values (1), (2), (3);

@@ -7,7 +7,7 @@ create table employee (
 
 create table login_credential (
 	user_email varchar(50) not null,
-	user_password varchar(30) not null,
+	user_password varchar(255) not null,
 	emp_id smallint unsigned not null,
 	primary key (user_email, user_password),
 	foreign key (emp_id) references employee(emp_id)
