@@ -21,7 +21,7 @@ function listUnreadComments($id) {
     $result = db_query($get_unread_comments);
     
     while($comment = mysqli_fetch_array($result)){
-        echo $comment['author'] . "<br />";
+        echo $comment['author'] . "<br />";;
     }
 }
 //todo: function to grab a list of the logged in users iterations

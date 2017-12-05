@@ -18,5 +18,7 @@
         </form>
     </div>
 </div>
-
-<?php include('../template/footer.php');?>
+<?php
+    include("../service/message_out.php");
+    include('../template/footer.php');
+?>
