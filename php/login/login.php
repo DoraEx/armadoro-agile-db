@@ -1,6 +1,7 @@
 <?php
     ini_set('display_errors', 1);
     require("../service/dbconf.php");
+
     session_start();
     include("../service/message_in.php");
 
@@ -33,6 +34,8 @@
             $_SESSION['e_id'] = $row_id[0]; 
             $_SESSION['e_name'] = $row_name[0];
             $_SESSION['e_role'] = $row_role[0] ? "PM" : "DEV";
+
+            addMessage("Welcome, " . $e_name);
             header('location: ../');
         }
 
