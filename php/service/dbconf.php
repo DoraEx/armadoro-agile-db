@@ -20,7 +20,7 @@
         $connection = db_connect();
         $result = mysqli_query($connection, $query);
         if(!$result) {
-            echo "Error: " . mysqli_error($connection);
+            return "Error: " . mysqli_error($connection);
         }
         return $result;
     }
