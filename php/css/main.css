@@ -19,7 +19,7 @@
     flex: 0 0 30%;
     height:400px;
 }
-.dashboard .card {
+.dashboard>.module-wrap>.card {
     height: 400px;
 }
 .card-header p {

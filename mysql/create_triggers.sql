@@ -16,8 +16,7 @@ INSERT INTO project_progress VALUES(
     new.project_id, 
     NOW(), 
     (SELECT COUNT(*) FROM task t WHERE new.project_id = t.project_id),
-    (SELECT COUNT(*) FROM task t WHERE new.project_id = t.project_id AND t.status_id = 'OP'),
-    20); 
+    (SELECT COUNT(*) FROM task t WHERE new.project_id = t.project_id AND t.status_id = 'OP')); 
 END;
 $$
 delimiter ;
@@ -40,8 +39,7 @@ BEGIN
       new.iteration_id,
       NOW(), 
       (SELECT COUNT(*) FROM task t WHERE new.iteration_id = t.iteration_id),
-      (SELECT COUNT(*) FROM task t WHERE new.iteration_id = t.iteration_id AND t.status_id = 'OP'),
-      20); 
+      (SELECT COUNT(*) FROM task t WHERE new.iteration_id = t.iteration_id AND t.status_id = 'OP')); 
   END IF;
 END;
 $$
@@ -65,8 +63,7 @@ BEGIN
       new.iteration_id,
       NOW(), 
       (SELECT COUNT(*) FROM task t WHERE new.iteration_id = t.iteration_id),
-      (SELECT COUNT(*) FROM task t WHERE new.iteration_id = t.iteration_id AND t.status_id = 'OP'),
-      20); 
+      (SELECT COUNT(*) FROM task t WHERE new.iteration_id = t.iteration_id AND t.status_id = 'OP')); 
   END IF; 
 END; 
 $$ 

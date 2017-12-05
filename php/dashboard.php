@@ -21,7 +21,11 @@ function listUnreadComments($id) {
     $result = db_query($get_unread_comments);
     
     while($comment = mysqli_fetch_array($result)){
-        echo $comment['author'] . "<br />";;
+        echo "<div class='card mb-3'><div class='card-header'>"; 
+        echo  "On task ".$comment['task_name'] ."from project " .$comment['project_name'].", " . $comment['author'] . " wrote:" ;
+        echo "</div><div class='card-body'>";
+        echo "<p>" . $comment['comment_text'];
+        echo "</p></div></div>";
     }
 }
 //todo: function to grab a list of the logged in users iterations

@@ -2,14 +2,10 @@
 <?php require('service/session.php');?>
 <?php require('template/header.php');?>
 <?php require('dashboard.php');?>
-<!-- todo: messaging services? -->
 
 <div class="container">
-    <div class="messages">
-        <?php 
-            echo "Weclome, " . $e_name;
-        ?>
-    </div>
+        <?php include('service/message_out.php');?>
+
 	<div class="dashboard">
         <div class="module-wrap" id="projects">
             <div class="card bg-light mb-3">
