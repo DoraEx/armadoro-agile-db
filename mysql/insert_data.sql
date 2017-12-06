@@ -81,3 +81,7 @@ values (null, 'HTML/HTML5'),
 
 insert into developer_skill
 values (4,1), (4,2), (4,4), (5,1), (5,5), (5,6), (6,1), (6,2), (6,3); 
+
+insert into comment_read 
+values (1, 2, 0),
+(1, 3, 0);
