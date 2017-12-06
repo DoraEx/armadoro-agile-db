@@ -1,9 +1,10 @@
 <!-- THIS FILE IS TO SHOW THE ITERATIONS IN WHICH THE CURRENT USER IS ACTIVE -->
+
 <?php ini_set('display_errors', 1); ?>
 <?php require(realpath($_SERVER["DOCUMENT_ROOT"]) . '/service/session.php'); ?>
+<?php $_SESSION['page'] = 'ITERATION'; ?>
 <?php require(realpath($_SERVER["DOCUMENT_ROOT"]) . '/template/header.php');?>
 <?php require('./iteration.php');?>
-
 <head><title>iterations</title></head>
 
 <div class="container">
@@ -19,8 +20,5 @@
     </div>
 </div>
 
-
-
-
-
 <?php require(realpath($_SERVER["DOCUMENT_ROOT"]) . '/template/footer.php'); ?>
+

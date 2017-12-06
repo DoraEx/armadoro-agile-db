@@ -27,7 +27,7 @@
                         <?php addManagementConsoleOption(); ?>
                     </div>
                 </div>
-                <a class="navbar-brand" href="/">Agile Project</a>                
+                <a class="navbar-brand" href="/"><?= $_SESSION['page'] ?></a>                
                 <a class="navbar-brand" href="/view/profile"><?php display_name() ?></a>  
                 <a class="navbar-brand" href="#"><?php display_role() ?></a>  
                 <a class="btn btn-light" href="/service/logout.php">Logout</a>
