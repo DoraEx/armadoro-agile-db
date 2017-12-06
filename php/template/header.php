@@ -27,6 +27,27 @@
                     </div>
                 </div>
                 <a class="navbar-brand" href="../">Agile Project</a>                
-                <a class="btn btn-light" href="../service/logout.php">Logout</a>
+                <a class="navbar-brand" href="/view/profile"><?php display_name() ?></a>  
+                <a class="navbar-brand" href="../"><?php display_role() ?></a>  
+                
+                <a class="btn btn-light" href="/service/logout.php">Logout</a>
             </div>
         </nav>
+
+
+<?php
+function display_name() {
+    if (isset($_SESSION['e_name'])) { 
+        echo ($_SESSION['e_name']);
+    }
+}
+
+function display_role() {
+    if (isset($_SESSION['e_role'])) {
+        echo ('Role: ' . $_SESSION['e_role']);
+    }
+}
+
+?>
+
+        
