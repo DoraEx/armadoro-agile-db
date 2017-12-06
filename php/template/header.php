@@ -34,7 +34,6 @@
             </div>
         </nav>
 
-
 <?php
 function display_name() {
     if (isset($_SESSION['e_name'])) { 
