@@ -47,7 +47,7 @@
     flex: 0 0 30%;
     height:400px;
 }
-.dashboard>.module-wrap>.card {
+.dashboard>.module-wrap>.comment-card {
     height: 400px;
 }
 .card-header p {
