@@ -31,7 +31,7 @@ function listUnreadComments($id) {
     
         $body = $comment['comment_text'];
         
-        display_card($header, $body);
+        display_card_with_header($header, $body);
     }
 }
 
@@ -54,7 +54,7 @@ MARKER;
         
         $body = $iteration['date_start'] . " - " . $iteration['date_end'];
 
-        display_card($header, $body);
+        display_card_with_header($header, $body);
         
     }
 }
