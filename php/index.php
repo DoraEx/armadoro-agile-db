@@ -6,8 +6,6 @@
 <head><title>PA - Dashboard</title></head>
 
 <div class="container">
-        <?php include('service/message_out.php');?>
-
 	<div class="dashboard">
         <div class="module-wrap" id="projects">
             <div class="card bg-light mb-3">
