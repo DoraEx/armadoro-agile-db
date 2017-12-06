@@ -20,19 +20,18 @@ function listUnreadComments($id) {
     
     while ($comment = mysqli_fetch_array($result)) {
         $comment_read_pk = $comment['emp_id'] . " " . $comment['comment_id'];
-
-        echo "<div class='card mb-3 comment-card'><div class='card-header'>"; 
-        echo get_employee_link($comment['author_id'], $comment['author']);
-        echo " wrote on ". $comment['date_created'];
-        echo " from task ";
-        echo get_task_link($comment['task_id'], $comment['task_name']);
-        echo " of project ";
-        echo get_project_link($comment['project_id'], $comment['project_name']);
-        echo "</p>";
-        echo "<button id=\"$comment_read_pk\" onClick=\"remove_comment(this.id)\" style=\"float: right;\">remove</button>";
-        echo "</div><div class='card-body'>";
-        echo "<p>" . $comment['comment_text'];
-        echo "</p></div></div>";
+ 
+        $header =  get_employee_link($comment['author_id'], $comment['author'])
+                    . " wrote on ". $comment['date_created']
+                    . " from task "
+                    . get_task_link($comment['task_id'], $comment['task_name'])
+                    . " of project "
+                    . get_project_link($comment['project_id'], $comment['project_name'])
+                    . "<button id=\"$comment_read_pk\" onClick=\"remove_comment(this.id)\" style=\"float: right;\">remove</button>";
+    
+        $body = $comment['comment_text'];
+        
+        display_card($header, $body);
     }
 }
 
@@ -49,13 +48,14 @@ MARKER;
     
     while($iteration = mysqli_fetch_array($result)){
         $iteration_pk = $iteration['iteration_id'];
-        $iteration_tag = get_iteration_link($iteration['iteration_id'], $iteration['iteration_name']);
-        echo "<div class='card mb-3 comment-card'><div class='card-header'>"; 
-        echo get_iteration_link($iteration['iteration_id'], $iteration['iteration_name']);        
-        echo "<button id=\"$iteration_pk\" onClick=\"iteration_button_onclick(this.id)\" style=\"float: right;\">go</button>";
-        echo "</div><div class='card-body'>";
-        echo "<p>" . $iteration['date_start'] . " - " . $iteration['date_end'];
-        echo "</p></div></div>";
+
+        $header = get_iteration_link($iteration['iteration_id'], $iteration['iteration_name'])        
+                . "<button id=\"$iteration_pk\" onClick=\"iteration_button_onclick(this.id)\" style=\"float: right;\">go</button>";
+        
+        $body = $iteration['date_start'] . " - " . $iteration['date_end'];
+
+        display_card($header, $body);
+        
     }
 }
 // -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
