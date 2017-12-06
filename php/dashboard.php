@@ -9,6 +9,9 @@ function listActiveUserProjects($id) {
     while ($project_row = mysqli_fetch_array($result)) {
         echo "<li><button name='project' class='btn btn-link' type='submit' value='" 
         . $project_row['project_id'] ."'>". $project_row['project_name'] . "</button></li>";
+        
+        echo "<button id=\"$comment_read_pk\" onClick=\"remove_comment(this.id)\" style=\"float: right;\">remove</button>";
+        
     }
     echo "</ul>";
 }
