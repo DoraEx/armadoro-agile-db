@@ -1,7 +1,7 @@
 create database agile_db;
 use agile_db;
 
-create user if not exists agile_db_admin;
+create user if not exists agile_db_admin identified by 'defaultpass';
 grant all on agile_db.* to 'agile_db_admin'@'%' identified by 'defaultpass';
 
 select 'START CREATING TABLES' AS '';
