@@ -19,6 +19,5 @@
     </div>
 </div>
 <?php
-    include("../service/message_out.php");
     include('../template/footer.php');
 ?>
