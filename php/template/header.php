@@ -20,16 +20,16 @@
                     </a>
 
                     <div class="dropdown-menu" aria-labelledby="mainDropdownMenu">
-                        <a class="dropdown-item" href="#">Projects</a>
-                        <a class="dropdown-item" href="#">Tasks</a>
-                        <a class="dropdown-item" href="#">Comments</a>
+                        <a class="dropdown-item" href="/view/project_dashboard">Projects</a>
+                        <a class="dropdown-item" href="/view/task">Tasks</a>
+                        <a class="dropdown-item" href="/view/comment">Comments</a>
                         <a class="dropdown-item" href="#">Statistics</a>
                         <?php addManagementConsoleOption(); ?>
                     </div>
                 </div>
-                <a class="navbar-brand" href="../">Agile Project</a>                
+                <a class="navbar-brand" href="/">Agile Project</a>                
                 <a class="navbar-brand" href="/view/profile"><?php display_name() ?></a>  
-                <a class="navbar-brand" href="../"><?php display_role() ?></a>  
+                <a class="navbar-brand" href="#"><?php display_role() ?></a>  
                 <a class="btn btn-light" href="/service/logout.php">Logout</a>
             </div>
         </nav>
