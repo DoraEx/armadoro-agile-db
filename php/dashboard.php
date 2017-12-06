@@ -21,8 +21,9 @@ function listUnreadComments($id) {
     $result = db_query($get_unread_comments);
     
     while($comment = mysqli_fetch_array($result)){
-        echo "<div class='card mb-3'><div class='card-header'>"; 
-        echo  "On task ".$comment['task_name'] ."from project " .$comment['project_name'].", " . $comment['author'] . " wrote:" ;
+        $author_tag = "<button name='author' class='btn btn-link' type='submit' value='". $comment['author_id']. "'>".$comment['author']. "</button>";
+        echo "<div class='card mb-3 comment-card'><div class='card-header'>"; 
+        echo $author_tag;
         echo "</div><div class='card-body'>";
         echo "<p>" . $comment['comment_text'];
         echo "</p></div></div>";

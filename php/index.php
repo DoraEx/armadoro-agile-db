@@ -13,7 +13,7 @@
                     Active Projects
                     <p><small><a>View all projects ></a></small></p>
                 </div>
-                <div class="card-body">
+                <div class="card-body card-scrollable">
                     <!-- todo: call a function for the project list-->
                     <?php listActiveUserProjects($e_id); ?>
                 </div>
@@ -26,7 +26,7 @@
                     Unread Comments
                     <p><small><a>View all comments ></a></small></p>
                 </div>
-                <div class="card-body">
+                <div class="card-body card-scrollable">
                     <!-- todo: call a function for the comments -->
                     <?php listUnreadComments($e_id); ?> 
                 </div>
@@ -39,7 +39,7 @@
                     Current Iterations
                     <p><small><a>View all iterations ></a></small></p>
                 </div>
-                <div class="card-body">
+                <div class="card-body card-scrollable">
                     <!-- todo: call a function for the iterations-->
                 </div>
             </div>
