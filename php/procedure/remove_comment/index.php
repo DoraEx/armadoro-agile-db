@@ -5,12 +5,6 @@ and set it's read state to 1 -->
 <?php require(realpath($_SERVER["DOCUMENT_ROOT"]) . '/service/session.php'); ?>
 
 <?php
-error_log("\n IN REMOVE_COMMENT.PHP\n", 3, "/home/armando/php_log.log");
-
-
-error_log("\n <<  EMP ID: " . $_POST["emp_id"] . "\n COMM_ID: " . $_POST["comment_id"] . "  >>   \n", 3, "/home/armando/php_log.log");
-
-
 $emp_id = isset($_POST['emp_id']) ? $_POST['emp_id'] : null;
 $comment_id = isset($_POST['comment_id']) ? $_POST['comment_id'] : null;
 if ($emp_id != null && $comment_id != null) {
