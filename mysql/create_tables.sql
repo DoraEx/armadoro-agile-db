@@ -1,3 +1,5 @@
+use agile_db;
+
 create table employee (
 	emp_id smallint unsigned not null auto_increment,
 	first_name varchar(20) not null,

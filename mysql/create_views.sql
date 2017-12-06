@@ -47,7 +47,7 @@ group by first_name, last_name;
 
 
 create view unread_comment_detail as
-select unread.emp_id as emp_id, c.comment_id, a.emp_id as author_id, concat(a.first_name,' ', a.last_name) as author, t.task_id,
+select unread.emp_id as emp_id, c.comment_id as comment_id, a.emp_id as author_id, concat(a.first_name,' ', a.last_name) as author, t.task_id,
 		 t.task_name, p.project_id, p.project_name, c.date_created, c.comment_text
 from (select comment_id, emp_id 
 		from comment_read
@@ -67,7 +67,11 @@ from (select comment_id, emp_id
 
 
 
-/*ACTIVE PROJECTS*/
+/*
+  ACTIVE PROJECTS
+  OUTPUTS COLUMNS:
+  project_id, project_manager, project_name, date_start, date_due, date_complete
+*/
 CREATE VIEW active_projects AS 
 SELECT * 
 FROM project 
@@ -75,8 +79,17 @@ WHERE date_complete IS NULL;
 
 
 
-/*ACTIVE ITERATIONS*/
+/*
+ ACTIVE ITERATIONS
+  OUTPUTS COLUMNS:
+  project_id, iteration_id, iteration_name, date_start, date_end
+*/
 CREATE VIEW active_iterations AS
 SELECT *
 FROM iteration
 WHERE (SELECT NOW()) BETWEEN date_start AND date_end;
+project_id smallint unsigned not null,
+	iteration_id smallint unsigned not null,
+	iteration_name varchar(30) not null,	
+	date_start date not null,
+	date_end date not null,
