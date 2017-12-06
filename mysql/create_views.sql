@@ -88,11 +88,7 @@ CREATE VIEW active_iterations AS
 SELECT *
 FROM iteration
 WHERE (SELECT NOW()) BETWEEN date_start AND date_end;
-project_id smallint unsigned not null,
-	iteration_id smallint unsigned not null,
-	iteration_name varchar(30) not null,	
-	date_start date not null,
-	date_end date not null,
+
 
 
 
