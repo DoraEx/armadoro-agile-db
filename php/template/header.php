@@ -24,12 +24,12 @@
                         <a class="dropdown-item" href="#">Tasks</a>
                         <a class="dropdown-item" href="#">Comments</a>
                         <a class="dropdown-item" href="#">Statistics</a>
+                        <?php addManagementConsoleOption(); ?>
                     </div>
                 </div>
                 <a class="navbar-brand" href="../">Agile Project</a>                
                 <a class="navbar-brand" href="/view/profile"><?php display_name() ?></a>  
                 <a class="navbar-brand" href="../"><?php display_role() ?></a>  
-                
                 <a class="btn btn-light" href="/service/logout.php">Logout</a>
             </div>
         </nav>
@@ -45,6 +45,12 @@ function display_name() {
 function display_role() {
     if (isset($_SESSION['e_role'])) {
         echo ('Role: ' . $_SESSION['e_role']);
+    }
+}
+
+function addManagementConsoleOption() {
+    if (isset($_SESSION['e_role']) && $_SESSION['e_role'] == 'PM') {
+        echo ("<a class=\"dropdown-item\" href=\"/view/management_console\">Management Console</a>");
     }
 }
 

@@ -5,15 +5,12 @@
 function listActiveUserProjects($id) {
     $get_projects = "select project_id, project_name from project where project_manager='" . $id ."'";
     $result = db_query($get_projects);
-    $projects = mysqli_fetch_assoc($result);
-    $length = count($result);
-    
     echo "<ul>";
-    for($i = 0; $i < $length; $i++) {
-        echo "<li><button name='project' class='btn btn-link' type='submit' value='" . $projects['project_id'] ."'>". $projects['project_name'] . "</button></li>";
+    while ($project_row = mysqli_fetch_array($result)) {
+        echo "<li><button name='project' class='btn btn-link' type='submit' value='" 
+        . $project_row['project_id'] ."'>". $project_row['project_name'] . "</button></li>";
     }
     echo "</ul>";
-    
 }
 // -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
 //todo: function to grab a list of the logged in users  unread comments
@@ -27,7 +24,7 @@ function listUnreadComments($id) {
     $get_unread_comments = "select * from unread_comment_detail where emp_id = '" . $id . "'";
     $result = db_query($get_unread_comments);
     
-    while($comment = mysqli_fetch_array($result)){
+    while ($comment = mysqli_fetch_array($result)) {
         
         //added by Armando
         $comment_read_pk = $comment['emp_id'] . " " . $comment['comment_id'];
@@ -77,4 +74,25 @@ MARKER;
     }
 }
 // -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+
+
+
+
+
+// ADD MANAGEMENT CONSOLE() ****PROBABLY NOT NEEDED because there's a link in the header drop down (DELETE WHEN SURE)****
+// -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+// -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+function addManagementConsole() {
+    error_log("\n\nSESSION: " . $_SESSION['e_role'] . "\n\n", 3, "/home/armando/php_log.log");
+    if(isset($_SESSION['e_role']) && $_SESSION['e_role'] == 'PM') {
+        $console_link = "<button name='console' class='btn btn-link' type='submit' value='Management Console'>Management Console</button>";
+        echo "<div class='card mb-3 comment-card'><div class='card-header'>"; 
+        echo "<form action=\"/view/management_console\">";
+        echo $console_link;
+        echo "</form>";
+        echo "</div></div'>";
+    }
+}
+// -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+
 ?>
