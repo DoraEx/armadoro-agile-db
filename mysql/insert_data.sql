@@ -9,7 +9,7 @@ values (null, 'Janice', 'Grant'),
 (null, 'Steven','Berkshire');
 
 insert into login_credential
-values ('j.grant@company.com', '$2y$10$vPntXPmcutrOAlAvG0k0IuTydGV18Z.crlosQAcHUMOZXEIBSu9a', 1),
+values ('j.grant@company.com', '$2y$10$7Nj5qlcktW9wsmMn0Pc12OE4rIQ2m5rULMBx684eVHjBiGMlEL1PG', 1),
 ('m.fullman@company.com', '$2y$10$aIZRIFP6kTys/Vu52H8gGOY1V.8e7A5XHFIsm7TSfniffg6zM.TQW', 2),
 ('a.mcrow@company.com', '$2y$10$NzzvgE3jqjoXWovGI6q1P.7LhuzahA8WAIxgQC7tvVyT0EnUNijDq', 3),
 ('a.jenkins@company.com', '$2y$10$p6/N6e5MQLJ.A5Ay.jgFiujZzKBebqqFLLxyYXE2T8rzLN5eTygzO', 4),
