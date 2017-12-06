@@ -3,6 +3,8 @@
 <?php require('template/header.php');?>
 <?php require('dashboard.php');?>
 
+<head><title>PA - Dashboard</title></head>
+
 <div class="container">
         <?php include('service/message_out.php');?>
 
@@ -41,6 +43,7 @@
                 </div>
                 <div class="card-body card-scrollable">
                     <!-- todo: call a function for the iterations-->
+                    <?php listIterations($e_id); ?> 
                 </div>
             </div>
         

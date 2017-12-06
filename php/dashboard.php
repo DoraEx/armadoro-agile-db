@@ -1,5 +1,7 @@
 <?php
 //todo: fix it go get active projects
+// -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+// -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
 function listActiveUserProjects($id) {
     $get_projects = "select project_id, project_name from project where project_manager='" . $id ."'";
     $result = db_query($get_projects);
@@ -13,8 +15,13 @@ function listActiveUserProjects($id) {
     echo "</ul>";
     
 }
+// -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
 //todo: function to grab a list of the logged in users  unread comments
 
+
+
+// -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+// -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
 function listUnreadComments($id) {
     //from comment_read table
     $get_unread_comments = "select * from unread_comment_detail where emp_id = '" . $id . "'";
@@ -39,7 +46,35 @@ function listUnreadComments($id) {
         echo "</p></div></div>";
     }
 }
-//todo: function to grab a list of the logged in users iterations
+// -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
 
 
+
+
+// LIST ITERATIONS()
+// -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+// -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
+function listIterations($id) {
+    //from active_iterations table
+    $get_iterations_query = <<<MARKER
+    SELECT DISTINCT project_id, iteration_id, iteration_name, date_start, date_end, project_manager, project_name
+    FROM employee_active_iterations 
+    WHERE project_manager = "$id" OR developer_emp_id = "$id";
+MARKER;
+
+    //$get_iterations_query = "SELECT DISTINCT * FROM employee_active_iterations WHERE project_manager = '" . $id . "' OR developer_emp_id = '" . $id . "'";
+    $result = db_query($get_iterations_query);
+    
+    while($iteration = mysqli_fetch_array($result)){
+        $iteration_pk = $iteration['iteration_id'];
+        $author_tag = "<button name='author' class='btn btn-link' type='submit' value='". $iteration['iteration_id']. "'>".$iteration['iteration_name']. "</button>";
+        echo "<div class='card mb-3 comment-card'><div class='card-header'>"; 
+        echo $author_tag;
+        echo "<button id=\"$iteration_pk\" onClick=\"iteration_button_onclick(this.id)\" style=\"float: right;\">go</button>";
+        echo "</div><div class='card-body'>";
+        echo "<p>" . $iteration['date_start'] . " - " . $iteration['date_end'];
+        echo "</p></div></div>";
+    }
+}
+// -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
 ?>

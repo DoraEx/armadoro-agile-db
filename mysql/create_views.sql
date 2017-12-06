@@ -93,3 +93,19 @@ project_id smallint unsigned not null,
 	iteration_name varchar(30) not null,	
 	date_start date not null,
 	date_end date not null,
+
+
+
+
+/*
+ EMPLOYEE_ACTIVE_ITERATIONS
+*/
+CREATE VIEW employee_active_iterations AS 
+SELECT p.project_id as project_id, iteration_id, iteration_name, i.date_start as date_start, i.date_end as date_end, project_manager, project_name, d.developer_emp_id as developer_emp_id
+FROM active_iterations i
+JOIN active_projects p ON i.project_id=p.project_id
+JOIN project_developer d ON d.project_id=p.project_id;
+
+
+
+

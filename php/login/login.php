@@ -20,7 +20,7 @@
         $row_id = mysqli_fetch_array($result_id);
 	$db_password = isset($row_id['user_password']) ? $row_id['user_password'] : 'YOU FAILED';
 	if(password_verify($pass, $db_password)) {
-		error_log("\n\nshould login\n\n", 3, "/home/ubuntu/php_log.log");
+		//error_log("\n\nshould login\n\n", 3, "/home/ubuntu/php_log.log");
 	}
 	else {
 		error_log("\n" . "USER ENTERED PASSWORD" . $pass . "\n" . "DATABASE_PASSWORD" . $db_password . "\n", 3,"/home/ubuntu/php_log.log");
