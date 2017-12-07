@@ -27,13 +27,15 @@
                         <?php addManagementConsoleOption(); ?>
                     </div>
                 </div>
-                <a class="navbar-brand" href="/">Agile</a>                
+                <a class="navbar-brand" href="/">Agile Project</a>                
                 <a class="navbar-brand" href="/view/profile"><?php display_name() ?></a>  
                 <a class="navbar-brand" href="#"><?php display_role() ?></a>  
                 <a class="btn btn-light" href="/service/logout.php">Logout</a>
             </div>
         </nav>
-
+        <div>
+            <h1><?php echo $_SESSION['page']; ?></h1>
+        </div>
 <?php
 function display_name() {
     if (isset($_SESSION['e_name'])) { 
