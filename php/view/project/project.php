@@ -122,7 +122,6 @@ MARKER;
 MARKER;
         echo($task_output);
     }
-<<<<<<< HEAD
 }
 //-   -   -   -   -   -   -   -   -   -   -   -   -   -
 
@@ -161,10 +160,6 @@ MARKER;
       </ul>
 MARKER;
         echo($comment_output);
-=======
-    if($_SERVER["REQUEST_METHOD"] == "POST") {
-        echo $_GET['project_id'];
->>>>>>> e8fb3dfc812be6c481347adcb47d259f3e0e3ef3
     }
 }
 //-   -   -   -   -   -   -   -   -   -   -   -   -   -
