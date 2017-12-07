@@ -34,7 +34,8 @@
             </div>
         </nav>
         <div>
-            <h1><?php echo $_SESSION['page']; ?></h1>
+        <?php $page = isset($_SESSION['page']) ? $_SESSION['page'] : "LOG IN"; ?>
+            <h1><?= $page ?></h1>
         </div>
 <?php
 function display_name() {
