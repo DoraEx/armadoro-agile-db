@@ -17,7 +17,6 @@ MARKER;
     LIMIT 1;
 MARKER;
 
-    //$get_iterations_query = "SELECT DISTINCT * FROM employee_active_iterations WHERE project_manager = '" . $id . "' OR developer_emp_id = '" . $id . "'";
     $result = db_query($get_iterations_query);
     
     while($iteration_row = mysqli_fetch_array($result)) {

@@ -18,9 +18,9 @@
                     <a class="btn btn-light dropdown-toggle" href="#" role="button" id="mainDropdownMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Menu
                     </a>
-
                     <div class="dropdown-menu" aria-labelledby="mainDropdownMenu">
-                        <a class="dropdown-item" href="/view/project_dashboard">Projects</a>
+                        <a class="dropdown-item" href="/">Dashboard</a>
+                        <a class="dropdown-item" href="/view/project">Projects</a>
                         <a class="dropdown-item" href="/view/task">Tasks</a>
                         <a class="dropdown-item" href="/view/comment">Comments</a>
                         <a class="dropdown-item" href="#">Statistics</a>
@@ -52,7 +52,6 @@ function addManagementConsoleOption() {
         echo ("<a class=\"dropdown-item\" href=\"/view/management_console\">Management Console</a>");
     }
 }
-
 ?>
 
         

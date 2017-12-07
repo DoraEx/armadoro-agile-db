@@ -59,12 +59,12 @@ create table project (
 );
 
 CREATE TABLE iteration (
-	project_id smallint unsigned not null,
-	iteration_id smallint unsigned not null,
-	iteration_name varchar(30) not null,	
-	date_start date not null,
-	date_end date not null,
-	primary key (project_id, iteration_id),
+	project_id smallint unsigned NOT NULL,
+	iteration_id smallint unsigned NOT NULL AUTO_INCREMENT,
+	iteration_name varchar(30) NOT NULL,
+	date_start DATE NOT NULL,
+	date_end DATE NOT NULL,
+	primary key (iteration_id),
 	foreign key (project_id) references project(project_id)
 );
 
@@ -93,7 +93,7 @@ CREATE TABLE task (
 	description 	TEXT,
 	PRIMARY KEY(task_id),
 	FOREIGN KEY(project_id) REFERENCES project(project_id),
-	FOREIGN KEY(project_id, iteration_id) REFERENCES iteration(project_id, iteration_id),
+	FOREIGN KEY(iteration_id) REFERENCES iteration(iteration_id),
 	FOREIGN KEY(status_id) REFERENCES status(status_id),
 	FOREIGN KEY(size_id) REFERENCES size(size_id)
 );
@@ -142,14 +142,15 @@ create table iteration_progress(
 	time  		timestamp not null,
 	total_tasks smallint unsigned not null,
 	open_tasks  smallint unsigned not null,
-	primary key (project_id, iteration_id, time, total_tasks, open_tasks),
-	foreign key (project_id, iteration_id) references iteration(project_id, iteration_id)
+	primary key (iteration_id, time, total_tasks, open_tasks),
+	foreign key (iteration_id) references iteration(iteration_id)
 );
+
 
 create table comment_read(
 	emp_id 	    SMALLINT UNSIGNED NOT NULL,
 	comment_id  SMALLINT UNSIGNED NOT NULL,
-	read_status BOOLEAN  NOT NULL DEFAULT 0,	
+	read_status BOOLEAN  NOT NULL DEFAULT 0,
 	PRIMARY KEY (emp_id, comment_id),
 	foreign key (comment_id) references comment(comment_id),
 	foreign key (emp_id) references employee(emp_id)
