@@ -24,8 +24,9 @@ values (1), (2), (3);
 insert into developer
 values (4), (5), (6), (7), (8);
 
-insert into project 
-values (null, 1, 'Kitchen Emporium Site', '2017-12-01', '2018-03-01', null);
+insert into project
+values (null, 1, 'Kitchen Emporium Site', '2017-12-01', '2018-03-01', null),
+(NULL, '1', 'Android App MADS', '2017-10-18', '2017-12-22', NULL);
 
 insert into status
 values ('OP', 'Open'),
@@ -44,9 +45,9 @@ values ('XS', 'Extra Small', 1),
 insert into project_developer
 values (1, 4),
 (1,6),
-(1,8); 
+(1,8);
 
-insert into iteration 
+insert into iteration
 values (1, 1, 'Iteration 1 - Setup', '2017-12-04', '2017-12-15');
 
 insert into task
@@ -58,11 +59,11 @@ values (null, 'Create database', NOW(), null, 1, 1, 'OP', 'XL', null),
 insert into task_developer
 values (4, 4),
 (6, 2),
-(5, 1);
+(8, 1);
 
 insert into comment
 values (null, null, 1, 1, now(), 'Will the current server have enough space or should i be moved to the new one?'),
-(null, 1, 5, 1, now(), "Let's move to the new one to be safe"),
+(null, 1, 8, 1, now(), "Let's move to the new one to be safe"),
 (null, null, 6, 2, now(), 'Are we doing hover or click menu?');
 
 insert into phone_number
@@ -80,8 +81,9 @@ values (null, 'HTML/HTML5'),
 (null, 'PHP');
 
 insert into developer_skill
-values (4,1), (4,2), (4,4), (5,1), (5,5), (5,6), (6,1), (6,2), (6,3); 
+values (4,1), (4,2), (4,4), (5,1), (5,5), (5,6), (6,1), (6,2), (6,3);
 
-insert into comment_read 
+insert into comment_read
 values (1, 2, 0),
+(8, 1, 0),
 (1, 3, 0);

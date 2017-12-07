@@ -1,5 +1,6 @@
 <?php ini_set('display_errors', 1); ?>
 <?php require('service/session.php');?>
+<?php $_SESSION['page'] = 'DASHBOARD'; ?>
 <?php require('template/header.php');?>
 <?php require('dashboard.php');?>
 
