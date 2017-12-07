@@ -65,14 +65,6 @@
 
 
 
-
-
-
-
-
-
-
-
 <?php
 if (isset($_GET['add_project'])) {
     display_add_project_form();
