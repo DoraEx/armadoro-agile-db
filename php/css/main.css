@@ -95,3 +95,16 @@
     min-height: 300px;
     flex-wrap: wrap;
 }
+
+.indent-comment {
+    width: 5%;
+    height: 120px;
+    float: left;
+}
+#input-comment {
+  width: 100%;
+
+}
+#submit-comment {
+    margin-bottom: 75px;
+}

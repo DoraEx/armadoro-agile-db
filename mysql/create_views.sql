@@ -65,7 +65,26 @@ from (select comment_id, emp_id
 		from employee) as a
 	on a.emp_id = c.emp_id;
 
+create view employee_detail
+select e.emp_id, concat(e.first_name, ' ', e.last_name) as employee, phone, user_email as email
+from employee e
+	left outer join phone_number p
+	on e.emp_id = p.emp_id
+	join (select emp_id, user_email
+		from login_credential) as l
+	on e.emp_id = l.emp_id;
 
+create view task_detail as
+select task_id, task_name, create_date, completed_date, t.project_id,project_name, t.iteration_id, iteration_name, status_name as status, size_name as size, description
+	from task t
+	join project p 
+	on t.project_id = p.project_id
+	join iteration i
+	on t.iteration_id = i.iteration_id
+	join status st
+	on t.status_id = st.status_id
+	join size s
+	on t.size_id = s.size_id;
 
 /*
   ACTIVE PROJECTS

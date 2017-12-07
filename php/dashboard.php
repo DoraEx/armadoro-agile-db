@@ -1,13 +1,12 @@
 <?php
 require("service/wrappers.php");
-
+require("service/queries.php");
 
 function listActiveUserProjects($id) {
-    $get_projects = "select project_id, project_name from project where project_manager='" . $id ."'";
-    $result = db_query($get_projects);
+    $projects = get_projects($id);
     echo "<ul>";
 
-    while ($project = mysqli_fetch_array($result)) {
+    while ($project = mysqli_fetch_array($projects)) {
         echo get_project_link($project['project_id'], $project['project_name']);
     }
     echo "</ul>";

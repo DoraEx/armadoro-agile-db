@@ -32,6 +32,7 @@
             $_SESSION['e_id'] = $row_id[0]; 
             $_SESSION['e_name'] = $row_name[0];
             $_SESSION['e_role'] = $row_role[0] ? "PM" : "DEV";
+            header('location: ../');
 	    } 
 	    else {
 	        echo 'Invalid username or password';
