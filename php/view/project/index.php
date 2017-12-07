@@ -6,7 +6,9 @@
 <?php $_SESSION['page'] = 'PROJECT DETAIL'; ?>
 <?php require(realpath($_SERVER["DOCUMENT_ROOT"]).'/template/header.php'); ?>
 <?php require(realpath($_SERVER["DOCUMENT_ROOT"])."/view/project/project.php"); ?>
-
+<?php
+if(!isset($_SESSION['e_id']) or !isset($_SESSION['project_id'])) { header('location: /'); }
+?>
 <head><title>PROJECT DASHBOARD</title></head>
 
 

@@ -2,8 +2,8 @@
 <?php
 ini_set('display_errors', 1);
 
-//Checking Redirect Conditions
-if(!isset($_SESSION['e_id']) or !isset($_SESSION['project_id'])) { header('location: /'); }
+// //Checking Redirect Conditions
+// if(!isset($_SESSION['e_id']) or !isset($_SESSION['project_id'])) { header('location: /'); }
 // If came to page through post, set the project_id to the posted id
 if($_SERVER["REQUEST_METHOD"] == "GET") {
     $_SESSION['project_id'] = $_GET['project_id'];
@@ -78,14 +78,6 @@ MARKER;
        </ul>
 MARKER;
     echo ($project_detail_output);
-
-
-    // display_card_with_header('Project Name:', $project_details_1_row['project_name']);
-    // display_card_with_header('Start Date:', $project_details_1_row['date_start']);
-    // display_card_with_header('Due Date:', empty($project_details_1_row['date_due']) ? 'on-going' : $project_details_1_row['date_due']);
-    // display_card_with_header('Manager Name:', $project_details_1_row['full_name']);
-    // display_card_with_header('Total Tasks:', $project_details_2_row['total_tasks']);
-    // display_card_with_header('Open Tasks:', $project_details_2_row['open_tasks']);
 }
 //-   -   -   -   -   -   -   -   -   -   -   -   -   -
 

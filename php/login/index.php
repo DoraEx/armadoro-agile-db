@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <form action="" method="POST">
             <div class="form-group">
-                <label>Email</label>
+                <label>Email &nbsp; &nbsp; &nbsp; &nbsp;</label>
                 <input type="email" class="form-control" name="email"/>
             </div>
             <div class="form-group">

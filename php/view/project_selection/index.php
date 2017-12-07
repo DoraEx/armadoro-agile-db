@@ -6,7 +6,7 @@
 <?php require(realpath($_SERVER["DOCUMENT_ROOT"]) . '/view/project_selection/project_selection.php');?>
 <head><title>PROJECT SELECTION</title></head>
 <?php $e_id = $_SESSION['e_id']; ?>
-
+<?php $_SESSION['page'] = 'LOGIN'; ?>
 <br>
 <div style="text-align: center;">
     <form action="/view/project" method="GET">
