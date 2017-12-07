@@ -5,6 +5,6 @@
         header('location: ../');
     }
     if($_SERVER["REQUEST_METHOD"] == "POST") {
-        echo $_POST['project_id'];
+        echo $_GET['project_id'];
     }
 ?>

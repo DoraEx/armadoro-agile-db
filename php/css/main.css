@@ -76,3 +76,15 @@
 .dashboard>.module-wrap>.card{
     font-size: .75em;
 }
+.indent-comment {
+    width: 5%;
+    height: 120px;
+    float: left;
+}
+#input-comment {
+  width: 100%;
+
+}
+#submit-comment {
+    margin-bottom: 75px;
+}

@@ -58,11 +58,11 @@ values (null, 'Create database', NOW(), null, 1, 1, 'OP', 'XL', null),
 insert into task_developer
 values (4, 4),
 (6, 2),
-(5, 1);
+(8, 1);
 
 insert into comment
 values (null, null, 1, 1, now(), 'Will the current server have enough space or should i be moved to the new one?'),
-(null, 1, 5, 1, now(), "Let's move to the new one to be safe"),
+(null, 1, 8, 1, now(), "Let's move to the new one to be safe"),
 (null, null, 6, 2, now(), 'Are we doing hover or click menu?');
 
 insert into phone_number
@@ -84,5 +84,5 @@ values (4,1), (4,2), (4,4), (5,1), (5,5), (5,6), (6,1), (6,2), (6,3);
 
 insert into comment_read 
 values (1, 2, 0),
-(5, 1, 0),
+(8, 1, 0),
 (1, 3, 0);
