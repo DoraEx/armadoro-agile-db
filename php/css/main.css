@@ -37,17 +37,19 @@
  *        DASHBOARD         *
  ****************************/
 .dashboard {
-    margin: 50px 0 0 0;
+    margin: 20px 0 0 0;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     min-height: 450px;
+    flex-wrap: wrap;
 }
 .module-wrap {
-    flex: 0 0 30%;
+    flex: 1 0 33%;
     height:400px;
+    margin-bottom: 20px;
 }
-.dashboard>.module-wrap>.comment-card {
+.dashboard>.module-wrap>.card {
     height: 400px;
 }
 .card-header p {
@@ -64,13 +66,13 @@
 /****************************
  *      COMMENT CARDS       *
  ****************************/
-.comment-card .card-header {
+ .dashboard>.module-wrap>.card  {
+    margin: 20px;
     font-size: .75em;
 }
-.comment-card .card-header,
 .comment-card .card-body {
     padding: 1rem .5rem;
 }
-.comment-card .card-body p {
+.dashboard>.module-wrap>.card{
     font-size: .75em;
 }
