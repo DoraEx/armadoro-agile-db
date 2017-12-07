@@ -8,6 +8,7 @@ function listActiveUserProjects($id) {
 
     while ($project = mysqli_fetch_array($projects)) {
         echo get_project_link($project['project_id'], $project['project_name']);
+        error_log("\nPROJECT ID: " . $project['project_id'] . "\n", 3, '/home/armando/php_log.log');
     }
     echo "</ul>";
 }

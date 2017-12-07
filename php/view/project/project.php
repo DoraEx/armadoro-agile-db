@@ -1,12 +1,12 @@
+
 <?php
 ini_set('display_errors', 1);
 
 //Checking Redirect Conditions
 if(!isset($_SESSION['e_id']) or !isset($_SESSION['project_id'])) { header('location: /'); }
 // If came to page through post, set the project_id to the posted id
-if($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $_SESSION['project_id'] = $_POST['project_id'];
+if($_SERVER["REQUEST_METHOD"] == "GET") {
+    $_SESSION['project_id'] = $_GET['project_id'];
 }
 
 // Grab the project_id from the Session
@@ -36,7 +36,7 @@ MARKER;
 
 
 
-// LIST PROJECT DETAILS 1()
+// LIST PROJECT DETAILS()
 //-   -   -   -   -   -   -   -   -   -   -   -   -   -
 function list_project_details($in_project_id) {
     $project_details_query_1 = <<<MARKER
@@ -60,12 +60,32 @@ MARKER;
     $result3 = db_query($project_details_query_2);
     $project_details_1_row = mysqli_fetch_array($result2);
     $project_details_2_row = mysqli_fetch_array($result3);
-    display_card_with_header('Project Name:', $project_details_1_row['project_name']);
-    display_card_with_header('Start Date:', $project_details_1_row['date_start']);
-    display_card_with_header('Due Date:', empty($project_details_1_row['date_due']) ? 'on-going' : $project_details_1_row['date_due']);
-    display_card_with_header('Manager Name:', $project_details_1_row['full_name']);
-    display_card_with_header('Total Tasks:', $project_details_2_row['total_tasks']);
-    display_card_with_header('Open Tasks:', $project_details_2_row['open_tasks']);
+
+    $project_name = $project_details_1_row['project_name'];
+    $date_start = $project_details_1_row['date_start'];
+    $date_due = empty($project_details_1_row['date_due']) ? 'on-going' : $project_details_1_row['date_due'];
+    $full_name = $project_details_1_row['full_name'];
+    $total_tasks = $project_details_2_row['total_tasks'];
+    $open_tasks = $project_details_2_row['open_tasks'];
+
+    $project_detail_output = <<<MARKER
+         <ul class="list-group">
+         <li class="list-group-item active"><Strong>Project:</Strong> $project_name</li>
+         <li class="list-group-item"><Strong>Start Date:</Strong> $date_start</li>
+         <li class="list-group-item"><Strong>Project Manager:</Strong> $full_name</li>
+         <li class="list-group-item"><Strong>Total Tasks:</Strong> $total_tasks</li>
+         <li class="list-group-item"><Strong>Open Tasks:</Strong> $open_tasks</li>
+       </ul>
+MARKER;
+    echo ($project_detail_output);
+
+
+    // display_card_with_header('Project Name:', $project_details_1_row['project_name']);
+    // display_card_with_header('Start Date:', $project_details_1_row['date_start']);
+    // display_card_with_header('Due Date:', empty($project_details_1_row['date_due']) ? 'on-going' : $project_details_1_row['date_due']);
+    // display_card_with_header('Manager Name:', $project_details_1_row['full_name']);
+    // display_card_with_header('Total Tasks:', $project_details_2_row['total_tasks']);
+    // display_card_with_header('Open Tasks:', $project_details_2_row['open_tasks']);
 }
 //-   -   -   -   -   -   -   -   -   -   -   -   -   -
 

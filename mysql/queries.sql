@@ -70,3 +70,22 @@ FROM task t
 JOIN iteration i ON t.iteration_id = i.iteration_id
 WHERE t.project_id = $in_project_id
 ORDER BY t.create_date DESC;
+
+
+
+
+
+/*
+Get user current projects
+*/
+SELECT DISTINCT p.project_name AS project_name, p.project_id AS project_id
+    FROM active_projects p
+    JOIN project_manager m ON p.project_manager = m.emp_id
+    WHERE 1 = m.emp_id
+
+UNION
+
+SELECT DISTINCT p2.project_name AS project_name, p2.project_id AS project_id
+	  FROM active_projects p2
+    JOIN project_developer d ON d.project_id = p2.project_id
+    WHERE 1 = d.developer_emp_id;
