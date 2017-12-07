@@ -93,6 +93,21 @@
 }
 
 
+.form-control {
+    width: 30em;
+    align-self: center;
+    display: inline;
+}
+
+.dashboard_top {
+    margin: 20px 0 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-height: 300px;
+    flex-wrap: wrap;
+}
+
 
 
 
@@ -132,17 +147,7 @@ h1 {
     /* background-color: lightblue; */
 }
 
-.form-control {
-    width: 30em;
-    align-self: center;
-    display: inline;
-}
 
-.dashboard_top {
-    margin: 20px 0 0 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    min-height: 300px;
-    flex-wrap: wrap;
+.head-item {
+	font-size: 1.1em;
 }

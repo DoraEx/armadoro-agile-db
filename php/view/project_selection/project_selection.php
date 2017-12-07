@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 
 //Checking Redirect Conditions
-if(!isset($_SESSION['e_id']) or !isset($_SESSION['project_id'])) { header('location: /'); }
+if(!isset($_SESSION['e_id'])) { header('location: /'); }
 
 
 

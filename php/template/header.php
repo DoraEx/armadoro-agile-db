@@ -27,9 +27,9 @@
                         <?php addManagementConsoleOption(); ?>
                     </div>
                 </div>
-                <a class="navbar-brand" href="/">Agile Project</a>                
-                <a class="navbar-brand" href="/view/profile"><?php display_name() ?></a>  
-                <a class="navbar-brand" href="#"><?php display_role() ?></a>  
+                <a class="navbar-brand head-item" href="/">Agile Project</a>                
+                <a class="navbar-brand head-item" href="/view/profile"><?php display_name() ?></a>  
+                <a class="navbar-brand head-item" href="#"><?php display_role() ?></a>  
                 <a class="btn btn-light" href="/service/logout.php">Logout</a>
             </div>
         </nav>
@@ -46,7 +46,7 @@ function display_name() {
 
 function display_role() {
     if (isset($_SESSION['e_role'])) {
-        echo ('Role: ' . $_SESSION['e_role']);
+        echo ('role: ' . strtolower($_SESSION['e_role']));
     }
 }
 
