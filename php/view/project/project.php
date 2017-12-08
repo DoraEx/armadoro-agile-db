@@ -40,7 +40,7 @@ MARKER;
 //-   -   -   -   -   -   -   -   -   -   -   -   -   -
 function list_project_details($in_project_id) {
     $project_details_query_1 = <<<MARKER
-    SELECT project_name, p.date_start AS date_start, p.date_due AS date_due, concat(e.first_name, " ", e.last_name) AS full_name 
+    SELECT project_name, p.date_start AS date_start, p.date_due AS date_due, concat(e.first_name, " ", e.last_name) AS full_name
     FROM project p
     JOIN employee e ON p.project_manager = e.emp_id
     WHERE p.project_id=$in_project_id;
@@ -106,24 +106,26 @@ MARKER;
 //-   -   -   -   -   -   -   -   -   -   -   -   -   -
 function list_project_tasks($in_project_id) {
     $project_tasks_query = <<<MARKER
-    SELECT t.task_name AS task_name, t.completed_date AS completed_date, t.status_id AS status_id, 
-            t.size_id AS size_id, i.iteration_name AS iteration_name  
+    SELECT t.task_name AS task_name, t.completed_date AS completed_date, t.status_id AS status_id,
+            t.size_id AS size_id, i.iteration_name AS iteration_name
     FROM task t
-    JOIN iteration i ON t.iteration_id = i.iteration_id
+    LEFT JOIN iteration i ON t.iteration_id = i.iteration_id
     WHERE t.project_id = $in_project_id
     ORDER BY t.create_date DESC;
 MARKER;
 
-    
-    
+
+
     $result = db_query($project_tasks_query);
+    var_dump($in_project_id);
+    var_dump($result);
     while ($project_tasks_row = mysqli_fetch_array($result)) {
-        $iteration_name = $project_tasks_row['iteration_name'];
+        $iteration_name = empty($project_tasks_row['iteration_name']) ? "Not assigned to an iteration" : $project_tasks_row['iteration_name'];
         $task_name = $project_tasks_row['task_name'];
         $status_id = $project_tasks_row['size_id'];
         $size_id = $project_tasks_row['size_id'];
         $task_output = <<<MARKER
-   
+
         <ul class="list-group">
         <li class="list-group-item active">$iteration_name</li>
         <li class="list-group-item">Task: $task_name</li>
@@ -148,7 +150,7 @@ MARKER;
 //-   -   -   -   -   -   -   -   -   -   -   -   -   -
 function list_project_comments($in_project_id) {
     $project_comments_query = <<<MARKER
-    SELECT c.date_created AS date_created, CONCAT(e.first_name, ' ', e.last_name) AS full_name, 
+    SELECT c.date_created AS date_created, CONCAT(e.first_name, ' ', e.last_name) AS full_name,
             c.comment_text AS text, t.task_id, c.comment_id
     FROM comment c
     JOIN task t ON c.task_id = t.task_id
@@ -157,8 +159,8 @@ function list_project_comments($in_project_id) {
     ORDER BY t.task_id DESC, c.comment_id ASC;
 MARKER;
 
-    
-    
+
+
     $result = db_query($project_comments_query);
     while ($project_comments_row = mysqli_fetch_array($result)) {
         $full_name = $project_comments_row['full_name'];

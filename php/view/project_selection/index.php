@@ -25,4 +25,3 @@
 
 
 <?php require(realpath($_SERVER["DOCUMENT_ROOT"]) . '/template/footer.php'); ?>
-
