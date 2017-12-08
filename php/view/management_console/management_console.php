@@ -139,3 +139,70 @@ echo ($add_task_form_2);
 // ///////////////////////////////////////////////////////////////////
 // ///////////////////////////////////////////////////////////////////
 ?>
+
+
+
+
+
+
+<?php
+
+// DISPLAY ADD ITERATION FORM()
+// ///////////////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////
+function display_add_iteration_form($in_e_id) {
+    $add_iteration_form_1 =<<< MARKER
+<div class="container">
+    <div class="row well">
+        <div class="offset-md-1 col-md-10 toledo-dash well">
+            <div id="div-to-pad-left">
+                <form action="/procedure/insert_iteration/index.php" method="POST"> 
+                    <!-- Project ID -->
+                    <div class="form-group">
+                        <label for="sel1">Select Project</label>
+                        <br>
+                        <select class="form-control" id="sel1" name="project_id">
+MARKER;
+    echo ($add_iteration_form_1);
+    
+    populate_projects($in_e_id);
+
+    $add_iteration_form_2 =<<< MARKER
+                        </select>
+                    </div>
+                    <!-- Iteration Name -->
+                    <div class="form-group">
+                        <label for="name-text2">Iteration Name</label>
+                        <br>
+                        <input class="form-control" id="name-text2" type="text" name="iteration_name" placeholder="iteration name">
+                    </div>
+                    <!-- Date Start -->
+                    <div class="form-group">
+                        <label for="date-get">Start Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <input id="date-get" name="date_start" type="date" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="date-get">End Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <input id="date-get" name="date_end" type="date" class="form-control">
+                    </div>
+                    <!-- Submit Button -->
+                    <input type="submit" value="OK">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+MARKER;
+    echo ($add_iteration_form_2);
+}
+// ///////////////////////////////////////////////////////////////////
+// ///////////////////////////////////////////////////////////////////
+?>
+
+
+
+
+
+
+
+<?php require(realpath($_SERVER["DOCUMENT_ROOT"]) . '/template/footer.php'); ?>

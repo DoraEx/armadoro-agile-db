@@ -10,7 +10,7 @@
 
 
 
-
+<br>
 <!-- ADD PROJECT SECTION/////////////////////////// -->
 <!-- ////////////////////////////////////////////// -->
 <div style="text-align: center;">
@@ -35,7 +35,7 @@ if (isset($_GET['add_project'])) {
 
 
 
-<br><br><br><hr/><br><br><br>
+<hr/>
 
 
 
@@ -64,19 +64,28 @@ if (isset($_GET['add_task'])) {
 
 
 
-
-
-<br><br><br><hr/><br><br><br>
+<hr/>
 
 
 
 
+<div style="text-align: center;">
+    <form action="/view/management_console" method="GET">
+            <div class="form-group">
+                <input type="text" name="add_iteration" value="true" style="display: none;">
+                <label for="submit1">Click To Add New Iteration:</label>
+                <input id="submit1" type="submit" value="Click">
+            </div>
+    </form>
+</div>
 
 <!-- ADD ITERATION SECTION///////////////////////// -->
 <!-- ////////////////////////////////////////////// -->
-
-
-
+<?php
+if (isset($_GET['add_iteration'])) {
+    display_add_iteration_form($_SESSION['e_id']);
+}
+?>
 <!-- ////////////////////////////////////////////// -->
 
 
