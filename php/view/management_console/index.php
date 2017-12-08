@@ -6,6 +6,7 @@
 <?php require(realpath($_SERVER["DOCUMENT_ROOT"]) . '/view/management_console/management_console.php');?>
 <head><title>PROJECT SELECTION</title></head>
 <?php $e_id = $_SESSION['e_id']; ?>
+<?php if ($_SESSION['e_role'] == 'DEV') {header('location: /view/management_console');} ?>
 <?php require(realpath($_SERVER["DOCUMENT_ROOT"]) . '/template/footer.php'); ?>
 
 
