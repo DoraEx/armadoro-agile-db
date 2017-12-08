@@ -23,7 +23,9 @@ $date_due = $_POST['date_due'];
 if ($e_id != null && $project_name != null) {
     $insert_query = "CALL insert_project_proc($e_id, \"$project_name\", \"$date_due\")";
     $result = db_query($insert_query);
-    error_log((string)$result, 3, "/home/ubuntu/php_log.log");
+
+    // error_log((string)$result, 3, "/home/ubuntu/php_log.log");
+
 }
 ?>
 

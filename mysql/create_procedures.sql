@@ -32,3 +32,28 @@ BEGIN
   );
 END; ??
 DELIMITER ;
+
+
+
+
+
+/*
+GET_USER_PROJECTS
+Returns project_name and project_id
+*/
+DELIMITER ??
+CREATE PROCEDURE get_user_projects(IN in_emp_id SMALLINT(5))
+BEGIN
+
+    SELECT DISTINCT p.project_name AS project_name, p.project_id AS project_id
+    FROM active_projects p
+    JOIN project_manager m ON p.project_manager = m.emp_id
+    WHERE in_emp_id = m.emp_id
+UNION
+    SELECT DISTINCT p2.project_name AS project_name, p2.project_id AS project_id
+	FROM active_projects p2
+    JOIN project_developer d ON d.project_id = p2.project_id
+    WHERE in_emp_id = d.developer_emp_id;
+
+END; ??
+DELIMITER ;
