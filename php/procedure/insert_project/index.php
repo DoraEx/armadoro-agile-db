@@ -5,27 +5,18 @@ and set it's read state to 1 -->
 <?php require(realpath($_SERVER["DOCUMENT_ROOT"]) . '/service/session.php'); ?>
 
 <?php
-// var_dump($_SESSION);
-// var_dump($_POST);
 
 
 $e_id = $_SESSION['e_id'];
 $project_name = $_POST['project_name'];
 $date_start = 'NOW()';
 $date_due = $_POST['date_due'];
-//
-// var_dump($e_id);
-// var_dump($project_name);
-// var_dump($date_start);
-// var_dump($date_due);
 
 
 if ($e_id != null && $project_name != null) {
     $insert_query = "CALL insert_project_proc($e_id, \"$project_name\", \"$date_due\")";
-    $result = db_query($insert_query);
-
+    $result = db_query($insert_query);\
     // error_log((string)$result, 3, "/home/ubuntu/php_log.log");
-
 }
 ?>
 
