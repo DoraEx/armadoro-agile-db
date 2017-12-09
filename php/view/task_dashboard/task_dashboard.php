@@ -4,6 +4,9 @@
 // ///////////////////////////////////////////////////////////////////
 // ///////////////////////////////////////////////////////////////////
 function populate_projects($in_e_id) {
+    global $sem;
+    $sem = Semaphore::RED;
+    var_dump($sem);
     $get_projects_query = "CALL get_user_projects($in_e_id)";
     $result = db_query($get_projects_query);
     while ($retrieved_row = mysqli_fetch_array($result)) {
@@ -14,6 +17,8 @@ function populate_projects($in_e_id) {
 MARKER;
         echo($project_to_output);
     }
+    $sem = Semaphore::GREEN;
+    var_dump($sem);
 }
 // ///////////////////////////////////////////////////////////////////
 
@@ -25,6 +30,11 @@ MARKER;
 // ///////////////////////////////////////////////////////////////////
 // ///////////////////////////////////////////////////////////////////
 function show_all_tasks_for_project($in_project_id) { 
+    global $sem;
+    while ($sem == Semaphore::RED) {
+        // wait your turn to query
+    }
+    var_dump($sem);
     $query_string = <<< MARKER
     SELECT t.task_id, t.task_name, t.create_date, t.completed_date, t.project_id, t.iteration_id, t.status_id, 
             t.size_id, t.description, i.iteration_name
@@ -51,7 +61,8 @@ MARKER;
 MARKER;
         echo($task_info_out);
         // Free result set
-    $db_output->close();
+        var_dump($sem);
+
     }
 }
 // ///////////////////////////////////////////////////////////////////
