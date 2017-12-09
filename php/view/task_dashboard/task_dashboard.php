@@ -52,10 +52,10 @@ MARKER;
         $task_info_out = <<<MARKER
         <ul class="list-group">
             <li class="list-group-item active"> <strong>Task: </strong> $task_name</li>
-            <li class="list-group-item "> <strong>Task: </strong> $iteration_name</li>
-            <li class="list-group-item "> <strong>Task: </strong> $status_id</li>
-            <li class="list-group-item "> <strong>Task: </strong> $size_id</li>
-            <li class="list-group-item "> <strong>Task: </strong> $description</li>
+            <li class="list-group-item "> <strong>Iteration: </strong> $iteration_name</li>
+            <li class="list-group-item "> <strong>Status: </strong> $status_id</li>
+            <li class="list-group-item "> <strong>Size: </strong> $size_id</li>
+            <li class="list-group-item "> <strong>Description: </strong> $description</li>
         </ul>
 MARKER;
         echo ($task_info_out);
@@ -88,10 +88,10 @@ MARKER;
         $task_info_out = <<<MARKER
         <ul class="list-group">
             <li class="list-group-item active"> <strong>Task: </strong> $task_name</li>
-            <li class="list-group-item "> <strong>Task: </strong> $iteration_name</li>
-            <li class="list-group-item "> <strong>Task: </strong> $status_id</li>
-            <li class="list-group-item "> <strong>Task: </strong> $size_id</li>
-            <li class="list-group-item "> <strong>Task: </strong> $description</li>
+            <li class="list-group-item "> <strong>Iteration: </strong> $iteration_name</li>
+            <li class="list-group-item "> <strong>Status: </strong> $status_id</li>
+            <li class="list-group-item "> <strong>Size: </strong> $size_id</li>
+            <li class="list-group-item "> <strong>Description: </strong> $description</li>
         </ul>
 MARKER;
         echo ($task_info_out);
