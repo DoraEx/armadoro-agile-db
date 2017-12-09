@@ -27,7 +27,7 @@
                         <?php addManagementConsoleOption(); ?>
                     </div>
                 </div>
-                <a class="navbar-brand head-item" href="/">Agile Project</a>                
+                <a class="navbar-brand head-item" href="/">ARMADORO</a>                
                 <a class="navbar-brand head-item" href="/view/profile"><?php display_name() ?></a>  
                 <a class="navbar-brand head-item" href="#"><?php display_role() ?></a>  
                 <a class="btn btn-light" href="/service/logout.php">Logout</a>
