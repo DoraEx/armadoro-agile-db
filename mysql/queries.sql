@@ -67,7 +67,7 @@ Get all tasks for a project
 SELECT t.task_name AS task_name, t.completed_date AS completed_date, t.status_id AS status_id,
         t.size_id AS size_id, i.iteration_name AS iteration_name
 FROM task t
-JOIN iteration i ON t.iteration_id = i.iteration_id
+LEFT JOIN iteration i ON t.iteration_id = i.iteration_id
 WHERE t.project_id = $in_project_id
 ORDER BY t.create_date DESC;
 
@@ -89,3 +89,18 @@ SELECT DISTINCT p2.project_name AS project_name, p2.project_id AS project_id
 	  FROM active_projects p2
     JOIN project_developer d ON d.project_id = p2.project_id
     WHERE 1 = d.developer_emp_id;
+
+
+
+
+
+
+
+/*
+Get Tasks assigned to user (Change 1 to desired user id)
+*/
+SELECT t.task_id, task_name, create_date, completed_date, project_id, iteration_id, status_id, size_id, description
+FROM task t
+JOIN task_developer d ON t.task_id = d.task_id
+WHERE d.emp_id = 6
+ORDER BY iteration_id DESC, create_date DESC;

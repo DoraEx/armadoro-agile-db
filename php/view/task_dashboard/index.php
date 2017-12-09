@@ -14,31 +14,44 @@
 <!-- ////////////////////////////////////////////// -->
 <div class="container">
 <div class="row well">
-<div class="col-md-6 toledo-dash well">
 
-    <form action="/view/task_dashboard" method="GET">
-        <div class="form-group">
-            <label for="submit1">Select project to view tasks:</label>
-            <!-- Project ID -->
+<!-- LEFT SIDE FOR TASKS PER PROJECT -->
+<div id="toledo-left" class="col-md-6">
+    <h3>Tasks per project</h3>
+    <div class="toledo-dash-long well pre-scrollable">
+
+
+        <form action="/view/task_dashboard" method="GET">
             <div class="form-group">
-                <select class="form-control" id="sel1" name="project_id">
-                    <?php populate_projects($e_id)?>
-                </select>
-                <input id="submit1" type="submit" value="View Tasks">
+                <label for="submit1">Select project to view tasks:</label>
+                <!-- Project ID -->
+                <div class="form-group">
+                    <select class="form-control" id="sel1" name="project_id">
+                        <?php populate_projects($e_id)?>
+                    </select>
+                    <input id="submit1" type="submit" value="View Tasks">
+                </div>
+                <div class="card-body">
+                    <?php if(isset($_GET['project_id'])) { show_all_tasks_for_project($_GET['project_id']); } ?>
+                </div>
             </div>
-            
-        </div>
-    </form>
+        </form>
 
-    <?php 
-    if(isset($_GET['project_id'])) {
-        show_all_tasks_for_project($_GET['project_id']);
-    } 
-    ?>
+        
+    </div>
+</div>
+
+
+<?php 
+if($_SESSION['e_role'] == 'DEV') {
+    echo show_right($e_id);
+}
+?>
+
 
 </div>
 </div>
-</div>
+
 <?php require(realpath($_SERVER["DOCUMENT_ROOT"]) . '/template/footer.php'); ?>
 
 <?php require(realpath($_SERVER["DOCUMENT_ROOT"]) . '/template/footer.php'); ?>

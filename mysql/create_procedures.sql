@@ -51,7 +51,7 @@ BEGIN
     WHERE in_emp_id = m.emp_id
 UNION
     SELECT DISTINCT p2.project_name AS project_name, p2.project_id AS project_id
-	FROM active_projects p2
+	  FROM active_projects p2
     JOIN project_developer d ON d.project_id = p2.project_id
     WHERE in_emp_id = d.developer_emp_id;
 

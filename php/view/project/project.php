@@ -117,8 +117,6 @@ MARKER;
 
 
     $result = db_query($project_tasks_query);
-    var_dump($in_project_id);
-    var_dump($result);
     while ($project_tasks_row = mysqli_fetch_array($result)) {
         $iteration_name = empty($project_tasks_row['iteration_name']) ? "Not assigned to an iteration" : $project_tasks_row['iteration_name'];
         $task_name = $project_tasks_row['task_name'];
