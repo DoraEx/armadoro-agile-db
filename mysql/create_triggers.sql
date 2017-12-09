@@ -71,3 +71,26 @@ delimiter ;
 
 
 
+
+
+/*AFTER INSERTING A COMMENT 
+  INSERT INTO comment_read*/
+delimiter $$ 
+CREATE TRIGGER after_insert_comment_trg
+AFTER INSERT ON comment
+FOR EACH ROW 
+BEGIN 
+	IF NEW.parent_comment_id IS NOT NULL THEN
+		INSERT INTO unread_comment VALUES(
+    		(SELECT p.emp_id FROM comment p 
+             JOIN comment c 
+             ON c.parent_comment_id = p.comment_id
+        WHERE c.comment_id = new.comment_id),
+   			NEW.comment_id);  
+	END IF;
+END;
+$$
+delimiter ;
+
+
+
