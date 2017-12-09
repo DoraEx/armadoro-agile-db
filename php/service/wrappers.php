@@ -1,6 +1,6 @@
 <?php
     function get_employee_link($id, $name) {
-        return "<form method=\"get\" action=\"/view/profile/\"><input type=\"hidden\" name=\"profile_id\" value=\"$id\"><input name=\"employee\" class=\"btn btn-link\" type=\"submit\" value=\"$name\"></form>"; 
+        return "<form class=\"hidden-form\"method=\"get\" action=\"/view/profile/\"><input type=\"hidden\" name=\"profile_id\" value=\"$id\"><input name=\"employee\" class=\"btn btn-link\" type=\"submit\" value=\"$name\"></form>"; 
         }
     function get_iteration_link($id, $name) {
         return "<button name=\"iteration\" class=\"btn btn-link\" type=\"submit\" value=\"$id\" form=\"iteration-form\">$name</button>";

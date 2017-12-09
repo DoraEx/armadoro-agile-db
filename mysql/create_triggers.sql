@@ -74,32 +74,20 @@ delimiter ;
 
 
 /*AFTER INSERTING A COMMENT 
-  INSERT INTO comment_read AN ENTRY
-  FOR THE PROJECT MANAGER (IF THE COMMENT IS ROOT)
-  FOR THE EMPLOYEE THAT CREATED THE PARENT COMMENT (IF THE COMMENT IS A CHILD COMMENT)*/
+  INSERT INTO comment_read*/
 delimiter $$ 
 CREATE TRIGGER after_insert_comment_trg
 AFTER INSERT ON comment
 FOR EACH ROW 
 BEGIN 
 	IF NEW.parent_comment_id IS NOT NULL THEN
-		INSERT INTO comment_read VALUES(
+		INSERT INTO unread_comment VALUES(
     		(SELECT p.emp_id FROM comment p 
              JOIN comment c 
-             ON c.parent_comment_id = p.comment_id),
-   			NEW.comment_id,
-    		0);  
+             ON c.parent_comment_id = p.comment_id
+        WHERE c.comment_id = new.comment_id),
+   			NEW.comment_id);  
 	END IF;
-    
-    IF NEW.parent_comment_id IS NULL THEN 
-      INSERT INTO comment_read VALUES(
-          (SELECT project_manager FROM project p
-           JOIN task t
-           ON p.project_id = t.project_id
-           WHERE t.task_id = NEW.task_id),
-          NEW.comment_id,
-          0);
-    END IF;
 END;
 $$
 delimiter ;

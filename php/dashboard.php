@@ -3,9 +3,12 @@ require("service/wrappers.php");
 require("service/queries.php");
 
 function listActiveUserProjects($id) {
-    $projects = get_projects($id);
+    if($_SESSION['e_role'] == 'PM') {
+        $projects = get_pm_projects($id);   
+    } else {
+        $projects = get_dev_projects($id);
+    }
     echo "<ul>";
-
     while ($project = mysqli_fetch_array($projects)) {
         echo get_project_link($project['project_id'], $project['project_name']);
     }

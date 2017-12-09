@@ -131,7 +131,7 @@ create table project_progress(
 	project_id 	smallint unsigned not null,
 	time    	timestamp not null,
 	total_tasks smallint unsigned not null,
-	open_tasks	smallint unsigned not null,
+	open_tasks  smallint unsigned not null,
 	primary key(project_id, time, total_tasks, open_tasks),
 	foreign key (project_id) references project(project_id)
 );
@@ -147,10 +147,9 @@ create table iteration_progress(
 );
 
 
-create table comment_read(
+create table unread_comment(
 	emp_id 	    SMALLINT UNSIGNED NOT NULL,
 	comment_id  SMALLINT UNSIGNED NOT NULL,
-	read_status BOOLEAN  NOT NULL DEFAULT 0,
 	PRIMARY KEY (emp_id, comment_id),
 	foreign key (comment_id) references comment(comment_id),
 	foreign key (emp_id) references employee(emp_id)

@@ -50,8 +50,7 @@ create view unread_comment_detail as
 select unread.emp_id as emp_id, c.comment_id as comment_id, a.emp_id as author_id, concat(a.first_name,' ', a.last_name) as author, t.task_id,
 		 t.task_name, p.project_id, p.project_name, c.date_created, c.comment_text
 from (select comment_id, emp_id 
-		from comment_read
-		where read_status = 0) as unread
+		from unread_comment) as unread
 	join (select comment_id, emp_id, task_id, date_created, comment_text
 		from comment) as c
 	on unread.comment_id = c.comment_id

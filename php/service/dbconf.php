@@ -24,3 +24,14 @@
         }
         return $result;
     }
+
+    //returns the id of the row from the last inserted row.
+    function insert_return_id($query) {
+        $connection = db_connect();
+        $result = mysqli_query($connection, $query);
+        if(!$result) {
+            return "Error: " . mysqli_error($connection);
+        }
+        return mysqli_insert_id($connection);
+        
+    }

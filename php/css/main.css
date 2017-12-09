@@ -77,8 +77,16 @@
     font-size: .75em;
 }
 
-
-
+.btn-link {
+    display: inline-block;
+}
+.hidden-form {
+    display: inline-block;
+}
+.hidden-form-btn {
+    display: inline-block;
+    float: right;
+}
 .indent-comment {
     width: 5%;
     height: 120px;
@@ -92,7 +100,10 @@
     margin-bottom: 75px;
 }
 
-
+.reply-btn {
+    display: inline;
+    float: right;
+}
 .form-control {
     width: 30em;
     align-self: center;
