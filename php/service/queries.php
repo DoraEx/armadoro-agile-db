@@ -1,6 +1,6 @@
 <?php
 
-function get_projects($id) {
+function get_pm_projects($id) {
     $get_projects = <<<MARKER
         select project_id, project_name 
         from project 
@@ -9,7 +9,7 @@ MARKER;
     return db_query($get_projects);
 }
 
-function get_developer_projects($id) {
+function get_dev_projects($id) {
     $get_projects = <<<MARKER
         select p.project_id, p.project_name  
         from project_developer 

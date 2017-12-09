@@ -30,9 +30,9 @@
         }
         
         function display_comment($comment) {
-            $author = get_employee_link($comment['emp_id'], $comment['author']);
+            $header = get_employee_link($comment['emp_id'], $comment['author']) . "<form class=\"hidden-form-btn\" method=\"post\" action=\"reply_comment.php\"><input type=\"hidden\" name=\"task_id\" value=\"".$_GET['task_id']."\"><input type=\"hidden\" name=\"parent_comment_id\" value=\"".$comment['comment_id']."\"><input class=\"btn btn-primary reply-btn\" type=\"submit\" value=\"reply\"></form>";
             $body = $comment['comment_text'];
-            display_card_with_header($author, $body);
+            display_card_with_header($header, $body);
         }
         
         function find_child_comments($id, $i) {

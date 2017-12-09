@@ -51,10 +51,10 @@ insert into iteration
 values (1, 1, 'Iteration 1 - Setup', '2017-12-04', '2017-12-15');
 
 insert into task
-values (null, 'Create database', NOW(), null, 1, 1, 'OP', 'XL', null),
-(null, 'Main Navigation', NOW(), null, 1, 1, 'OP', 'LG', null),
-(null, 'Home Page Template', NOW(), null, 1, null, 'OP', 'SM', null),
-(null, 'Site-Wide Style Guide', NOW(), null, 1, 1, 'OP', 'LG', null);
+values (null, 'Create database', NOW(), null, 1, 1, 'OP', 'XL', "create the mysql database. design"),
+(null, 'Main Navigation', NOW(), null, 1, 1, 'OP', 'LG', "create the main navigation header."),
+(null, 'Home Page Template', NOW(), null, 1, null, 'OP', 'SM', "need a wireframe and template for the homepage."),
+(null, 'Site-Wide Style Guide', NOW(), null, 1, 1, 'OP', 'LG', "need a desinger to create a style guide to unify the entire site.");
 
 insert into task_developer
 values (4, 4),
@@ -82,8 +82,3 @@ values (null, 'HTML/HTML5'),
 
 insert into developer_skill
 values (4,1), (4,2), (4,4), (5,1), (5,5), (5,6), (6,1), (6,2), (6,3);
-
-insert into comment_read
-values (1, 2, 0),
-(8, 1, 0),
-(1, 3, 0);
