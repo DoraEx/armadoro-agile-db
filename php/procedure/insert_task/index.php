@@ -3,12 +3,12 @@
 
 <?php
 
-$task_name = $_POST['task_name'];
-$create_date = 'NOW()';
-$project_id = $_POST['project_id'];
-$status_id = $_POST['status_id'];
-$size_id = $_POST['size_id'];
-$description = $_POST['description'];
+$task_name    = htmlentities($_POST['task_name']);
+$create_date  = 'NOW()';
+$project_id   = htmlentities($_POST['project_id'];
+$status_id    = htmlentities($_POST['status_id'];
+$size_id      = htmlentities($_POST['size_id'];
+$description  = htmlentities($_POST['description'];
 
 
 if ($e_id != null && $task_name != null && strlen($task_name) > 0) {
