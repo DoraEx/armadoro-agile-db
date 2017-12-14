@@ -22,8 +22,8 @@
                         <a class="dropdown-item" href="/">Dashboard</a>
                         <a class="dropdown-item" href="/view/project_selection">Projects</a>
                         <a class="dropdown-item" href="/view/task_dashboard">Tasks</a>
-                        <a class="dropdown-item" href="/view/comment">Comments</a>
-                        <a class="dropdown-item" href="#">Statistics</a>
+                        <!-- <a class="dropdown-item" href="/view/comment">Comments</a> -->
+                        <!-- <a class="dropdown-item" href="#">Statistics</a> -->
                         <?php addManagementConsoleOption(); ?>
                     </div>
                 </div>
