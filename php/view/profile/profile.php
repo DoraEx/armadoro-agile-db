@@ -33,7 +33,7 @@
             }
 
             echo "<h3>Current projects</h3>";
-            $projects = get_developer_projects($_GET['profile_id']);
+            $projects = get_dev_projects($_GET['profile_id']);
                 
             while ($project = mysqli_fetch_array($projects)) {
                 echo get_project_link($project['project_id'], $project['project_name']);
